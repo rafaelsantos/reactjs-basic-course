@@ -2,13 +2,25 @@ import React, { Component } from "react";
 import "./theme.css";
 
 class NoteForm extends Component {
+
+    constructor() {
+        super();
+        this.title = "";
+    }
+
+    handleChangeTitle(event) {
+        this.title = event.target.value;
+        console.log(this.title);
+    }
+
     render() {
         return (
             <form className="note-form">
                 <input 
                     type="text" 
                     placeholder="Title" 
-                    className="note-form-input" 
+                    className="note-form-input"
+                    onChange={this.handleChangeTitle.bind(this)}
                 />
                 <textarea 
                     rows={15} 
